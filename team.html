@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team | PMT Markets</title>
+    <meta name="description" content="Meet the experts behind PMT Markets - a world-class team of financial innovators, data scientists, and technology pioneers.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'cyber-blue': '#00d4ff',
+                        'growth-green': '#00ff9d',
+                        'dark-bg': '#0a0a0f',
+                        'card-dark': '#121218',
+                        'border-dark': '#1e1e2e',
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark-bg text-white font-inter min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-bg/90 backdrop-blur-lg border-b border-border-dark">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="w-12 h-12 rounded-lg border-2 border-cyber-blue bg-black shadow-lg flex items-center justify-center">
+                        <div class="text-white text-2xl font-bold tracking-tighter">P</div>
+                    </div>
+                    <span class="text-xl font-bold">PMT Markets</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="hover:text-cyber-blue transition">Home</a>
+                    <a href="index.html#company" class="hover:text-cyber-blue transition">Company</a>
+                    <a href="team.html" class="hover:text-cyber-blue transition font-bold text-cyber-blue">Team</a>
+                    <a href="index.html#products" class="hover:text-cyber-blue transition">Products</a>
+                    <a href="index.html#technology" class="hover:text-cyber-blue transition">Technology</a>
+                    <a href="index.html#contact" class="hover:text-cyber-blue transition">Contact</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobileMenuButton" class="p-2 rounded-lg border border-border-dark hover:bg-card-dark transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center space-x-2 bg-card-dark px-4 py-2 rounded-full mb-6">
+                    <div class="w-2 h-2 bg-growth-green rounded-full animate-pulse-slow"></div>
+                    <span class="text-sm">World-Class Team</span>
+                </div>
+                <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
+                    The Minds Behind
+                    <span class="bg-gradient-to-r from-cyber-blue to-growth-green bg-clip-text text-transparent">
+                        The Markets
+                    </span>
+                </h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    PMT Markets is built by a diverse team of financial innovators, quantitative researchers, 
+                    and technology pioneers united by a single mission: to democratize access to predictive intelligence.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Team -->
+    <section class="py-20 px-6 bg-card-dark">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Leadership Team</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Seasoned executives with decades of combined experience in finance, technology, and regulation
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Team Member 1 -->
+                <div class="bg-dark-bg rounded-2xl p-8 border border-border-dark hover:border-cyber-blue transition group">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-cyber-blue/20 to-growth-green/20 flex items-center justify-center group-hover:scale-105 transition">
+                        <div class="w-28 h-28 rounded-full bg-dark-bg flex items-center justify-center">
+                            <div class="text-4xl font-bold text-cyber-blue">DR</div>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-2">Dr. Rebecca Chen</h3>
+                    <p class="text-growth-green text-center mb-4">Chief Executive Officer</p>
+                    <p class="text-gray-300 text-center mb-6">
+                        Former Head of Quantitative Research at Goldman Sachs. PhD in Computational Finance from MIT.
+                        15+ years experience in market microstructure and prediction markets.
+                    </p>
+                    <div class="flex justify-center space-x-4">
+                        <span class="bg-cyber-blue/20 text-cyber-blue px-3 py-1 rounded-full text-sm">Quantitative Finance</span>
+                        <span class="bg-growth-green/20 text-growth-green px-3 py-1 rounded-full text-sm">Market Design</span>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="bg-dark-bg rounded-2xl p-8 border border-border-dark hover:border-growth-green transition group">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-growth-green/20 to-cyber-blue/20 flex items-center justify-center group-hover:scale-105 transition">
+                        <div class="w-28 h-28 rounded-full bg-dark-bg flex items-center justify-center">
+                            <div class="text-4xl font-bold text-growth-green">MK</div>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-2">Michael Kowalski</h3>
+                    <p class="text-cyber-blue text-center mb-4">Chief Technology Officer</p>
+                    <p class="text-gray-300 text-center mb-6">
+                        Former Lead Architect at Jane Street. Built high-frequency trading systems processing $50B+ daily.
+                        Expert in distributed systems and real-time data processing.
+                    </p>
+                    <div class="flex justify-center space-x-4">
+                        <span class="bg-cyber-blue/20 text-cyber-blue px-3 py-1 rounded-full text-sm">Systems Architecture</span>
+                        <span class="bg-growth-green/20 text-growth-green px-3 py-1 rounded-full text-sm">Real-time Data</span>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="bg-dark-bg rounded-2xl p-8 border border-border-dark hover:border-cyber-blue transition group">
+                    <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-cyber-blue/20 to-growth-green/20 flex items-center justify-center group-hover:scale-105 transition">
+                        <div class="w-28 h-28 rounded-full bg-dark-bg flex items-center justify-center">
+                            <div class="text-4xl font-bold text-cyber-blue">SP</div>
+                        </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-center mb-2">Sarah Patel</h3>
+                    <p class="text-growth-green text-center mb-4">Chief Legal & Compliance Officer</p>
+                    <p class="text-gray-300 text-center mb-6">
+                        Former SEC Senior Counsel and CFTC advisor. Led regulatory frameworks for multiple fintech unicorns.
+                        Ensures PMT Markets operates within global financial regulations.
+                    </p>
+                    <div class="flex justify-center space-x-4">
+                        <span class="bg-cyber-blue/20 text-cyber-blue px-3 py-1 rounded-full text-sm">Regulatory Compliance</span>
+                        <span class="bg-growth-green/20 text-growth-green px-3 py-1 rounded-full text-sm">Financial Law</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research & Data Science -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Research & Data Science</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Our quantitative researchers and data scientists develop the models that power our prediction accuracy
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-card-dark rounded-2xl p-8 border border-border-dark">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-16 h-16 bg-cyber-blue/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <div class="w-10 h-10 bg-cyber-blue rounded-lg"></div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4">Quantitative Research</h3>
+                            <p class="text-gray-300 mb-4">
+                                Our team of PhDs in economics, statistics, and computer science develop proprietary 
+                                forecasting models that consistently outperform traditional methods.
+                            </p>
+                            <ul class="space-y-2">
+                                <li class="flex items-center">
+                                    <div class="w-2 h-2 bg-growth-green rounded-full mr-3"></div>
+                                    <span>Bayesian forecasting models</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <div class="w-2 h-2 bg-growth-green rounded-full mr-3"></div>
+                                    <span>Ensemble prediction algorithms</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <div class="w-2 h-2 bg-growth-green rounded-full mr-3"></div>
+                                    <span>Market sentiment analysis</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-card-dark rounded-2xl p-8 border border-border-dark">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-16 h-16 bg-growth-green/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <div class="w-10 h-10 bg-growth-green rounded-lg"></div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4">Data Infrastructure</h3>
+                            <p class="text-gray-300 mb-4">
+                                We process billions of data points daily from news, social media, financial markets, 
+                                and proprietary sources to generate real-time insights.
+                            </p>
+                            <ul class="space-y-2">
+                                <li class="flex items-center">
+                                    <div class="w-2 h-2 bg-cyber-blue rounded-full mr-3"></div>
+                                    <span>Real-time data pipelines</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <div class="w-2 h-2 bg-cyber-blue rounded-full mr-3"></div>
+                                    <span>Natural language processing</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <div class="w-2 h-2 bg-cyber-blue rounded-full mr-3"></div>
+                                    <span>Distributed computing</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engineering Team -->
+    <section class="py-20 px-6 bg-card-dark">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Engineering Excellence</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Building and maintaining the world's most reliable prediction market infrastructure
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-dark-bg p-6 rounded-2xl border border-border-dark text-center">
+                    <div class="text-5xl font-bold text-growth-green mb-4">99.99%</div>
+                    <h3 class="text-xl font-bold mb-2">Platform Uptime</h3>
+                    <p class="text-gray-300 text-sm">Enterprise-grade reliability with multi-region redundancy</p>
+                </div>
+                <div class="bg-dark-bg p-6 rounded-2xl border border-border-dark text-center">
+                    <div class="text-5xl font-bold text-cyber-blue mb-4">&lt;2ms</div>
+                    <h3 class="text-xl font-bold mb-2">Trade Latency</h3>
+                    <p class="text-gray-300 text-sm">Sub-millisecond order matching engine</p>
+                </div>
+                <div class="bg-dark-bg p-6 rounded-2xl border border-border-dark text-center">
+                    <div class="text-5xl font-bold text-growth-green mb-4">50+</div>
+                    <h3 class="text-xl font-bold mb-2">Engineers</h3>
+                    <p class="text-gray-300 text-sm">Top talent from leading tech and finance companies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture & Values -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Our Culture</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    We believe that great products are built by great teams with shared values
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-card-dark p-6 rounded-2xl border border-border-dark">
+                    <div class="w-12 h-12 bg-cyber-blue/20 rounded-xl flex items-center justify-center mb-4">
+                        <div class="w-6 h-6 bg-cyber-blue rounded-lg"></div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Radical Transparency</h3>
+                    <p class="text-gray-300 text-sm">
+                        All market data, research, and decisions are open for discussion and scrutiny.
+                    </p>
+                </div>
+                <div class="bg-card-dark p-6 rounded-2xl border border-border-dark">
+                    <div class="w-12 h-12 bg-growth-green/20 rounded-xl flex items-center justify-center mb-4">
+                        <div class="w-6 h-6 bg-growth-green rounded-lg"></div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Meritocratic Ideas</h3>
+                    <p class="text-gray-300 text-sm">
+                        The best ideas win, regardless of seniority. We value evidence over hierarchy.
+                    </p>
+                </div>
+                <div class="bg-card-dark p-6 rounded-2xl border border-border-dark">
+                    <div class="w-12 h-12 bg-cyber-blue/20 rounded-xl flex items-center justify-center mb-4">
+                        <div class="w-6 h-6 bg-cyber-blue rounded-lg"></div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Continuous Learning</h3>
+                    <p class="text-gray-300 text-sm">
+                        We invest in our team's growth with regular training, conferences, and research time.
+                    </p>
+                </div>
+                <div class="bg-card-dark p-6 rounded-2xl border border-border-dark">
+                    <div class="w-12 h-12 bg-growth-green/20 rounded-xl flex items-center justify-center mb-4">
+                        <div class="w-6 h-6 bg-growth-green rounded-lg"></div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Global Perspective</h3>
+                    <p class="text-gray-300 text-sm">
+                        Our team spans 12 countries, bringing diverse perspectives to every challenge.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Our Team -->
+    <section class="py-20 px-6 bg-gradient-to-br from-cyber-blue/10 to-growth-green/10">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">Join Our Team</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                    We're always looking for exceptional talent to help us build the future of prediction markets
+                </p>
+                <button onclick="window.location.href='index.html#contact'" class="bg-gradient-to-r from-cyber-blue to-growth-green text-dark-bg font-bold px-8 py-3 rounded-lg text-lg hover:opacity-90 transition">
+                    View Open Positions
+                </button>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-dark-bg p-6 rounded-2xl border border-border-dark text-center">
+                    <div class="text-3xl font-bold text-growth-green mb-2">Remote-First</div>
+                    <p class="text-gray-300 text-sm">Work from anywhere with flexible hours and async collaboration</p>
+                </div>
+                <div class="bg-dark-bg p-6 rounded-2xl border border-border-dark text-center">
+                    <div class="text-3xl font-bold text-cyber-blue mb-2">Competitive</div>
+                    <p class="text-gray-300 text-sm">Top-tier compensation including equity and performance bonuses</p>
+                </div>
+                <div class="bg-dark-bg p-6 rounded-2xl border border-border-dark text-center">
+                    <div class="text-3xl font-bold text-growth-green mb-2">Impact-Driven</div>
+                    <p class="text-gray-300 text-sm">Work on challenging problems that shape global financial markets</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="fixed inset-0 bg-dark-bg/95 backdrop-blur-lg z-40 hidden">
+        <div class="flex flex-col h-full">
+            <div class="flex justify-end p-6">
+                <button id="closeMobileMenu" class="p-2 rounded-lg border border-border-dark hover:bg-card-dark transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="flex-1 flex flex-col items-center justify-center space-y-8 px-6">
+                <a href="index.html" class="text-2xl font-bold hover:text-cyber-blue transition" onclick="closeMobileMenu()">Home</a>
+                <a href="index.html#company" class="text-2xl font-bold hover:text-cyber-blue transition" onclick="closeMobileMenu()">Company</a>
+                <a href="team.html" class="text-2xl font-bold hover:text-cyber-blue transition" onclick="closeMobileMenu()">Team</a>
+                <a href="index.html#products" class="text-2xl font-bold hover:text-cyber-blue transition" onclick="closeMobileMenu()">Products</a>
+                <a href="index.html#technology" class="text-2xl font-bold hover:text-cyber-blue transition" onclick="closeMobileMenu()">Technology</a>
+                <a href="index.html#contact" class="text-2xl font-bold hover:text-cyber-blue transition" onclick="closeMobileMenu()">Contact</a>
+                
+                <!-- Mobile Language Switcher -->
+                <div class="mt-8 pt-8 border-t border-border-dark w-full max-w-xs">
+                    <div class="text-center mb-4 text-gray-400">Language / Ngôn ngữ / 语言</div>
+                    <div class="flex justify-center space-x-4">
+                        <a href="index.html" class="px-4 py-2 rounded-lg border border-border-dark hover:bg-card-dark transition" onclick="closeMobileMenu()">EN</a>
+                        <a href="index-vi-complete.html" class="px-4 py-2 rounded-lg border border-border-dark hover:bg-card-dark transition" onclick="closeMobileMenu()">VI</a>
+                        <a href="index-zh-complete.html" class="px-4 py-2 rounded-lg border border-border-dark hover:bg-card-dark transition" onclick="closeMobileMenu()">中文</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile CTA Button -->
+                <button class="mt-8 bg-gradient-to-r from-cyber-blue to-growth-green text-dark-bg font-bold px-8 py-3 rounded-lg text-lg hover:opacity-90 transition" onclick="closeMobileMenu()">
+                    Launch App
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-border-dark">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 rounded-lg border border-cyber-blue bg-black shadow-sm flex items-center justify-center">
+                        <div class="text-white text-sm font-bold">P</div>
+                    </div>
+                        <span class="text-lg font-bold">PMT Markets</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Next-generation prediction markets. Trade on the future with precision.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-cyber-blue transition text-sm">Home</a></li>
+                        <li><a href="team.html" class="text-gray-400 hover:text-cyber-blue transition text-sm">Team</a></li>
+                        <li><a href="index.html#company" class="text-gray-400 hover:text-cyber-blue transition text-sm">About</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyber-blue transition text-sm">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Platform</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#products" class="text-gray-400 hover:text-cyber-blue transition text-sm">Products</a></li>
+                        <li><a href="index.html#technology" class="text-gray-400 hover:text-cyber-blue transition text-sm">Technology</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyber-blue transition text-sm">Markets</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyber-blue transition text-sm">API</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-cyber-blue transition text-sm">Terms</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyber-blue transition text-sm">Privacy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyber-blue transition text-sm">Compliance</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyber-blue transition text-sm">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-border-dark text-center text-gray-400 text-sm">
+                <p>© 2026 PMT Markets. All rights reserved. Prediction markets involve risk and may not be suitable for all investors.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Mobile Menu Functionality
+        const mobileMenuButton = document.getElementById("mobileMenuButton");
+        const closeMobileMenuButton = document.getElementById("closeMobileMenu");
+        const mobileMenu = document.getElementById("mobileMenu");
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener("click", function() {
+                mobileMenu.classList.remove("hidden");
+                setTimeout(() => {
+                    mobileMenu.style.opacity = "1";
+                }, 10);
+            });
+            
+            closeMobileMenuButton.addEventListener("click", function() {
+                mobileMenu.style.opacity = "0";
+                setTimeout(() => {
+                    mobileMenu.classList.add("hidden");
+                }, 200);
+            });
+            
+            // Close menu when clicking on links
+            const mobileLinks = mobileMenu.querySelectorAll("a, button");
+            mobileLinks.forEach(link => {
+                link.addEventListener("click", function() {
+                    mobileMenu.style.opacity = "0";
+                    setTimeout(() => {
+                        mobileMenu.classList.add("hidden");
+                    }, 200);
+                });
+            });
+            
+            // Close menu when clicking outside
+            mobileMenu.addEventListener("click", function(e) {
+                if (e.target === mobileMenu) {
+                    mobileMenu.style.opacity = "0";
+                    setTimeout(() => {
+                        mobileMenu.classList.add("hidden");
+                    }, 200);
+                }
+            });
+        }
+        
+        function closeMobileMenu() {
+            if (mobileMenu) {
+                mobileMenu.style.opacity = "0";
+                setTimeout(() => {
+                    mobileMenu.classList.add("hidden");
+                }, 200);
+            }
+        }
+    </script>
+</body>
+</html>

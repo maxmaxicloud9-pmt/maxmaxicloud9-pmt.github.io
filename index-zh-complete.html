@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="zh" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMT 市场 | 新一代预测市场</title>
+    <meta name="description" content="精准交易未来。PMT 市场是一个下一代预测市场平台，将全球不确定性转化为可交易的见解。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">\n    <style>\n        .font-noto-sc { font-family: 'Noto Sans SC', sans-serif; }\n    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'cyber-blue': '#00d4ff',
+                        'growth-green': '#00ff9d',
+                        'dark-bg': '#0a0a0f',
+                        'card-dark': '#121218',
+                        'border-dark': '#1e1e2e',
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                        'noto-sc': ['Noto Sans SC', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark-bg text-white font-noto-sc min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-bg/90 backdrop-blur-lg border-b border-border-dark">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="w-12 h-12 rounded-lg border-2 border-cyber-blue bg-black shadow-lg flex items-center justify-center">
+                        <div class="text-white text-2xl font-bold tracking-tighter">P</div>
+                    </div>
+                    <span class="text-xl font-bold">PMT 市场</span>
+                </div>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="hover:text-cyber-blue transition">首页</a>
+                    <a href="#company" class="hover:text-cyber-blue transition">公司</a>
+                    <a href="team-zh.html" class="hover:text-cyber-blue transition">团队</a>
+                    <a href="#products" class="hover:text-cyber-blue transition">产品</a>
+                    <a href="#technology" class="hover:text-cyber-blue transition">技术</a>
+                    <a href="#contact" class="hover:text-cyber-blue transition">联系</a>
+                </div>
+                
+                <!-- Right-side Hamburger Menu for Mobile -->
+                <div class="md:hidden">
+                    <button id="mobileMenuButton" class="p-2 rounded-lg border border-border-dark hover:bg-card-dark transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Desktop Language Switcher & CTA -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <!-- Language Switcher -->
+                    <div class="relative" id="languageSwitcherContainer">
+                        <button id="languageSwitcherButton" class="flex items-center space-x-2 px-3 py-2 rounded-lg border border-cyber-blue bg-cyber-blue/10 hover:bg-cyber-blue/20 transition">
+                            <span class="font-bold">🌐 EN</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="languageMenu" class="absolute right-0 mt-2 w-40 bg-card-dark border border-border-dark rounded-lg shadow-lg opacity-0 invisible transition-all duration-200 z-50">
+                            <a href="index.html" class="block px-4 py-3 hover:bg-dark-bg transition border-b border-border-dark">
+                                <div class="font-bold">English</div>
+                                <div class="text-xs text-gray-400">Complete version</div>
+                            </a>
+                            <a href="index-vi-complete.html" class="block px-4 py-3 hover:bg-dark-bg transition border-b border-border-dark">
+                                <div class="font-bold">Tiếng Việt</div>
+                                <div class="text-xs text-gray-400">Translation in progress</div>
+                            </a>
+                            <a href="index-zh-complete.html" class="block px-4 py-3 hover:bg-dark-bg transition">
+                                <div class="font-bold">中文</div>
+                                <div class="text-xs text-gray-400">完整版本</div>
+                            </a>
+                        </div>
+                    </div>
+                    <button class="bg-gradient-to-r from-cyber-blue to-growth-green text-dark-bg font-bold px-6 py-2 rounded-lg hover:opacity-90 transition">
+                        启动应用
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="fixed inset-0 bg-dark-bg/95 backdrop-blur-lg z-40 hidden">
+        <div class="flex flex-col h-full">
+            <div class="flex justify-end p-6">
+                <button id="closeMobileMenu" class="p-2 rounded-lg border border-border-dark hover:bg-card-dark transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="flex-1 flex flex-col items-center justify-center space-y-8 px-6">
+                <a href="#home" class="text-2xl font-bold hover:text-cyber-blue transition" onclick="closeMobileMenu()">首页</a>
+                <a href="#company" class="text-2xl font-bold hover:text-cyber-blue transition" onclick="closeMobileMenu()">公司</a>
+                <a href="team-zh.html" class="text-2xl font-bold hover:text-cyber-blue transition" onclick="closeMobileMenu()">团队</a>
+                <a href="#products" class="text-2xl font-bold hover:text-cyber-blue transition" onclick="closeMobileMenu()">产品</a>
+                <a href="#technology" class="text-2xl font-bold hover:text-cyber-blue transition" onclick="closeMobileMenu()">技术</a>
+                <a href="#contact" class="text-2xl font-bold hover:text-cyber-blue transition" onclick="closeMobileMenu()">联系</a>
+                
+                <!-- Mobile Language Switcher -->
+                <div class="mt-8 pt-8 border-t border-border-dark w-full max-w-xs">
+                    <div class="text-center mb-4 text-gray-400">Language / Ngôn ngữ / 语言</div>
+                    <div class="flex justify-center space-x-4">
+                        <a href="index.html" class="px-4 py-2 rounded-lg border border-border-dark hover:bg-card-dark transition" onclick="closeMobileMenu()">EN</a>
+                        <a href="index-vi-complete.html" class="px-4 py-2 rounded-lg border border-border-dark hover:bg-card-dark transition" onclick="closeMobileMenu()">VI</a>
+                        <a href="index-zh-complete.html" class="px-4 py-2 rounded-lg border border-border-dark hover:bg-card-dark transition" onclick="closeMobileMenu()">中文</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile CTA Button -->
+                <button class="mt-8 bg-gradient-to-r from-cyber-blue to-growth-green text-dark-bg font-bold px-8 py-3 rounded-lg text-lg hover:opacity-90 transition" onclick="closeMobileMenu()">
+                    启动应用
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-flex items-center space-x-2 bg-card-dark px-4 py-2 rounded-full mb-6">
+                        <div class="w-2 h-2 bg-growth-green rounded-full animate-pulse-slow"></div>
+                        <span class="text-sm">实时市场交易</span>
+                    </div>
+                    <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
+                        交易未来。
+                        <span class="bg-gradient-to-r from-cyber-blue to-growth-green bg-clip-text text-transparent">
+                            每个预测都精准。
+                        </span>
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-8">
+                        PMT 市场 transforms global uncertainty into actionable intelligence. 
+                        A next-generation prediction market platform where crowd-sourced forecasting meets institutional-grade trading.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-gradient-to-r from-cyber-blue to-growth-green text-dark-bg font-bold px-8 py-3 rounded-lg text-lg hover:opacity-90 transition">
+                            开始交易
+                        </button>
+                        <button class="border border-border-dark text-white font-bold px-8 py-3 rounded-lg text-lg hover:bg-card-dark transition">
+                            探索市场
+                        </button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="bg-card-dark rounded-2xl p-6 border border-border-dark">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-xl font-bold">实时市场行情</h3>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-2 h-2 bg-growth-green rounded-full animate-pulse"></div>
+                                <span class="text-sm">实时</span>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center p-4 bg-dark-bg rounded-lg">
+                                <div>
+                                    <div class="font-bold">美联储利率决定</div>
+                                    <div class="text-sm text-gray-400">2026年3月会议</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-bold text-growth-green">72% Yes</div>
+                                    <div class="text-sm">0.72¢</div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center p-4 bg-dark-bg rounded-lg">
+                                <div>
+                                    <div class="font-bold">欧盟碳税</div>
+                                    <div class="text-sm text-gray-400">2026年第三季度前实施</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-bold text-cyber-blue">58% Yes</div>
+                                    <div class="text-sm">0.58¢</div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center p-4 bg-dark-bg rounded-lg">
+                                <div>
+                                    <div class="font-bold">科技IPO成功</div>
+                                    <div class="text-sm text-gray-400">Major AI 公司 2026</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-bold text-growth-green">84% Yes</div>
+                                    <div class="text-sm">0.84¢</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -top-4 -right-4 w-24 h-24 bg-cyber-blue/10 rounded-full blur-xl"></div>
+                    <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-growth-green/10 rounded-full blur-xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 运作方式 -->
+    <section class="py-20 px-6 bg-card-dark">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">运作方式</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    从洞察到执行的三个简单步骤
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-dark-bg p-8 rounded-2xl border border-border-dark">
+                    <div class="w-14 h-14 bg-cyber-blue/20 rounded-xl flex items-center justify-center mb-6">
+                        <div class="w-8 h-8 bg-cyber-blue rounded-lg"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">1. 发现市场</h3>
+                    <p class="text-gray-300">
+                        浏览政治、金融、技术和全球事件中的数千个二元和标量市场。每个市场代表一个具有是/否交易的具体结果。
+                    </p>
+                </div>
+                <div class="bg-dark-bg p-8 rounded-2xl border border-border-dark">
+                    <div class="w-14 h-14 bg-growth-green/20 rounded-xl flex items-center justify-center mb-6">
+                        <div class="w-8 h-8 bg-growth-green rounded-lg"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">2. 交易头寸</h3>
+                    <p class="text-gray-300">
+                        如果您相信事件会发生，则购买"是"，如果不相信，则购买"否"。价格实时反映市场共识。每份合约最低1美元即可交易。
+                    </p>
+                </div>
+                <div class="bg-dark-bg p-8 rounded-2xl border border-border-dark">
+                    <div class="w-14 h-14 bg-cyber-blue/20 rounded-xl flex items-center justify-center mb-6">
+                        <div class="w-8 h-8 bg-cyber-blue rounded-lg"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">3. 结算与盈利</h3>
+                    <p class="text-gray-300">
+                        当事件解决时，正确预测的合约结算为1美元，错误预测的结算为0美元。基于预言机的解决方案确保公平、透明的结果。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 公司 Profile -->
+    <section id="company" class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">群众智慧，机构精度</h2>
+                    <p class="text-lg text-gray-300 mb-6">
+                        PMT 市场 基于一个简单的前提创立：集体智慧，当被适当利用时，能产生比任何单个专家更准确的预测。
+                    </p>
+                    <p class="text-lg text-gray-300 mb-8">
+                        We've built a platform that transforms global uncertainty into tradable insights, combining the wisdom of crowds with institutional-grade infrastructure. Our mission is to create the world's most transparent, accessible, and accurate prediction market ecosystem.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-card-dark p-6 rounded-xl border border-border-dark">
+                            <div class="text-3xl font-bold text-growth-green mb-2">99.9%</div>
+                            <div class="text-gray-300">平台运行时间</div>
+                        </div>
+                        <div class="bg-card-dark p-6 rounded-xl border border-border-dark">
+                            <div class="text-3xl font-bold text-cyber-blue mb-2">50K+</div>
+                            <div class="text-gray-300">活跃交易者</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-card-dark rounded-2xl p-8 border border-border-dark">
+                    <h3 class="text-2xl font-bold mb-6">我们的理念</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-cyber-blue/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <div class="w-5 h-5 bg-cyber-blue rounded"></div>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-2">Transparency First</h4>
+                                <p class="text-gray-300">All market data, resolution criteria, and fee structures are publicly verifiable. No hidden mechanics.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-growth-green/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <div class="w-5 h-5 bg-growth-green rounded"></div>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-2">Regulatory 合规</h4>
+                                <p class="text-gray-300">Built within established financial frameworks with full KYC/AML procedures and regulatory oversight.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-cyber-blue/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <div class="w-5 h-5 bg-cyber-blue rounded"></div>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-2">Global Accessibility</h4>
+                                <p class="text-gray-300">Available in 150+ countries with multi-currency support and localized market offerings.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品 & Services -->
+    <section id="products" class="py-20 px-6 bg-card-dark">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">产品 & Services</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    为零售交易者和机构提供的全面预测市场解决方案
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-dark-bg p-6 rounded-2xl border border-border-dark hover:border-cyber-blue transition group">
+                    <div class="w-12 h-12 bg-cyber-blue/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-cyber-blue/30 transition">
+                        <div class="w-6 h-6 bg-cyber-blue rounded-lg"></div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">二元期权</h3>
+                    <p class="text-gray-300 text-sm">
+                        针对特定结果的 是/否 合约。从选举到收益报告等事件的简单直观交易。
+                    </p>
+                </div>
+                <div class="bg-dark-bg p-6 rounded-2xl border border-border-dark hover:border-growth-green transition group">
+                    <div class="w-12 h-12 bg-growth-green/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-growth-green/30 transition">
+                        <div class="w-6 h-6 bg-growth-green rounded-lg"></div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">宏观与地缘政治</h3>
+                    <p class="text-gray-300 text-sm">
+                        关于经济指标、政策决策、国际关系和全球风险事件的市场。
+                    </p>
+                </div>
+                <div class="bg-dark-bg p-6 rounded-2xl border border-border-dark hover:border-cyber-blue transition group">
+                    <div class="w-12 h-12 bg-cyber-blue/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-cyber-blue/30 transition">
+                        <div class="w-6 h-6 bg-cyber-blue rounded-lg"></div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">机构工具</h3>
+                    <p class="text-gray-300 text-sm">
+                        自定义预测仪表板、API访问、白标解决方案和企业数据源。
+                    </p>
+                </div>
+                <div class="bg-dark-bg p-6 rounded-2xl border border-border-dark hover:border-growth-green transition group">
+                    <div class="w-12 h-12 bg-growth-green/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-growth-green/30 transition">
+                        <div class="w-6 h-6 bg-growth-green rounded-lg"></div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">API解决方案</h3>
+                    <p class="text-gray-300 text-sm">
+                        实时市场数据、交易自动化和集成工具，适用于开发人员和量化公司。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技术 & 安全 -->
+    <section id="technology" class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">技术 & 安全</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    企业级基础设施，具有军事级安全性
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-card-dark p-8 rounded-2xl border border-border-dark">
+                    <div class="text-5xl font-bold text-growth-green mb-4">＜2ms</div>
+                    <h3 class="text-2xl font-bold mb-4">匹配引擎</h3>
+                    <p class="text-gray-300">
+                        专有订单匹配引擎每秒处理数百万笔交易，延迟低于2毫秒。专为高频交易环境构建。
+                    </p>
+                </div>
+                <div class="                <div class="bg-card-dark p-8 rounded-2xl border border-border-dark">
+                    <div class="text-5xl font-bold text-cyber-blue mb-4">AES-256</div>
+                    <h3 class="text-2xl font-bold mb-4">银行级安全</h3>
+                    <p class="text-gray-300">
+                        端到端加密、多重签名钱包和98%资产的冷存储。定期第三方安全审计和漏洞赏金计划。
+                    </p>
+                </div>
+                <div class="bg-card-dark p-8 rounded-2xl border border-border-dark">
+                    <div class="text-5xl font-bold text-growth-green mb-4">99.99%</div>
+                    <h3 class="text-2xl font-bold mb-4">系统运行时间</h3>
+                    <p class="text-gray-300">
+                        分布在12个全球区域，具有自动故障转移功能。零停机部署和24/7 SRE团队的实时监控。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系 Section -->
+    <section id="contact" class="py-20 px-6 bg-card-dark">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">立即开始</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    加入成千上万已经预测未来的交易者和机构
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-dark-bg p-8 rounded-2xl border border-border-dark">
+                    <h3 class="text-2xl font-bold mb-6">准备好交易了吗？</h3>
+                    <p class="text-gray-300 mb-6">
+                        在几分钟内创建您的账户。无需最低存款。仅需10美元即可开始。
+                    </p>
+                    <button class="w-full bg-gradient-to-r from-cyber-blue to-growth-green text-dark-bg font-bold px-6 py-3 rounded-lg hover:opacity-90 transition">
+                        创建免费账户
+                    </button>
+                </div>
+                <div class="bg-dark-bg p-8 rounded-2xl border border-border-dark">
+                    <h3 class="text-2xl font-bold mb-6">企业解决方案</h3>
+                    <p class="text-gray-300 mb-6">
+                        需要自定义预测工具、API访问或白标解决方案？我们的企业团队随时准备帮助。
+                    </p>
+                    <button class="w-full border border-border-dark text-white font-bold px-6 py-3 rounded-lg hover:bg-card-dark transition">
+                        联系 Sales
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-border-dark">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 rounded-lg border border-cyber-blue bg-black shadow-sm flex items-center justify-center">
+                        <div class="text-white text-sm font-bold">P</div>
+                    </div>
+                        <span class="text-lg font-bold">PMT 市场</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Next-generation prediction markets. 精准交易未来。
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">平台</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-cyber-blue transition text-sm">市场</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyber-blue transition text-sm">交易</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyber-blue transition text-sm">API</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyber-blue transition text-sm">文档</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">公司</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#company" class="text-gray-400 hover:text-cyber-blue transition text-sm">关于</a></li>
+                        <li><a href="team-zh.html" class="text-gray-400 hover:text-cyber-blue transition text-sm">团队</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyber-blue transition text-sm">职业</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyber-blue transition text-sm">博客</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">法律</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-cyber-blue transition text-sm">条款</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyber-blue transition text-sm">隐私</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyber-blue transition text-sm">合规</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyber-blue transition text-sm">安全</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-border-dark text-center text-gray-400 text-sm">
+                <p>© 2026 PMT 市场。保留所有权利。预测市场涉及风险，可能不适合所有投资者。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Live market ticker animation
+        // Live market ticker animation - FIXED VERSION
+        function updateMarketTicker() {
+            // Select only market items in the ticker section
+            const markets = document.querySelectorAll('.bg-dark-bg.rounded-lg');
+            markets.forEach(market => {
+                // Find the price element (last .text-sm in the right column)
+                const rightColumn = market.querySelector('.text-right');
+                if (!rightColumn) return;
+                
+                const priceElement = rightColumn.querySelector('.text-sm:last-child');
+                if (!priceElement) return;
+                
+                // Get current price safely
+                let priceText = priceElement.textContent.trim();
+                let currentPrice = parseFloat(priceText.replace('¢', '').replace('$', ''));
+                
+                // If NaN, set a default
+                if (isNaN(currentPrice)) {
+                    currentPrice = 0.50; // Default 50%
+                }
+                
+                // Generate small random change
+                const change = (Math.random() - 0.5) * 0.02;
+                const newPrice = Math.max(0.01, Math.min(0.99, currentPrice + change));
+                
+                // Update price display
+                priceElement.textContent = newPrice.toFixed(2) + '¢';
+                
+                // Update percentage display
+                const percentElement = rightColumn.querySelector('.font-bold');
+                if (percentElement) {
+                    const newPercent = Math.round(newPrice * 100);
+                    percentElement.textContent = newPercent + '% Yes';
+                    // Set color based on direction
+                    percentElement.className = 'font-bold ' + (newPrice > currentPrice ? 'text-growth-green' : 'text-cyber-blue');
+                }
+            });
+        }
+
+        // Update ticker every 5 seconds
+        setInterval(updateMarketTicker, 5000);
+        // Initial update after page loads
+        setTimeout(updateMarketTicker, 1000);
+        
+        // Mobile Menu JavaScript - Fixed version
+        console.log('Mobile menu script loading (fixed)...');
+        
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, setting up mobile menu...');
+            
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuButton = document.getElementById('mobileMenuButton');
+            const closeMobileMenuButton = document.getElementById('closeMobileMenu');
+            
+            console.log('Mobile menu elements found:', {
+                mobileMenu: !!mobileMenu,
+                mobileMenuButton: !!mobileMenuButton,
+                closeMobileMenuButton: !!closeMobileMenuButton
+            });
+            
+            function openMobileMenu() {
+                console.log('Opening mobile menu');
+                if (mobileMenu) {
+                    mobileMenu.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+            
+            function closeMobileMenu() {
+                console.log('Closing mobile menu');
+                if (mobileMenu) {
+                    mobileMenu.classList.add('hidden');
+                    document.body.style.overflow = '';
+                }
+            }
+            
+            // Make functions globally accessible for onclick handlers
+            window.openMobileMenu = openMobileMenu;
+            window.closeMobileMenu = closeMobileMenu;
+            
+            // Add click event to hamburger menu button
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', openMobileMenu);
+                console.log('✓ Added click listener to hamburger button');
+            } else {
+                console.error('✗ Hamburger button not found!');
+            }
+            
+            // Add click event to close button
+            if (closeMobileMenuButton) {
+                closeMobileMenuButton.addEventListener('click', closeMobileMenu);
+                console.log('✓ Added click listener to close button');
+            } else {
+                console.error('✗ Close button not found!');
+            }
+            
+            // Close menu when clicking outside
+            if (mobileMenu) {
+                mobileMenu.addEventListener('click', function(e) {
+                    if (e.target === mobileMenu) {
+                        closeMobileMenu();
+                    }
+                });
+            }
+            
+            // Close menu on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    closeMobileMenu();
+                }
+            });
+            
+            console.log('Mobile menu setup complete!');
+        });
+        
+        // Language Switcher JavaScript
+        const languageSwitcherButton = document.getElementById('languageSwitcherButton');
+        const languageMenu = document.getElementById('languageMenu');
+        
+        if (languageSwitcherButton && languageMenu) {
+            languageSwitcherButton.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const isVisible = languageMenu.classList.contains('opacity-0');
+                if (isVisible) {
+                    languageMenu.classList.remove('opacity-0', 'invisible');
+                    languageMenu.classList.add('opacity-100', 'visible');
+                } else {
+                    languageMenu.classList.add('opacity-0', 'invisible');
+                    languageMenu.classList.remove('opacity-100', 'visible');
+                }
+            });
+            
+            // Close language menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!languageSwitcherButton.contains(e.target) && !languageMenu.contains(e.target)) {
+                    languageMenu.classList.add('opacity-0', 'invisible');
+                    languageMenu.classList.remove('opacity-100', 'visible');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

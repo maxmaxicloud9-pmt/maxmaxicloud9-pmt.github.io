@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMT Thị trường | Thị trường Dự đoán Thế hệ Mới</title>
+    <meta name="description" content="Giao dịch tương lai với độ chính xác. PMT Thị trường là một nền tảng thị trường dự đoán thế hệ mới biến sự không chắc chắn toàn cầu thành thông tin chi tiết có thể giao dịch.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'cyber-blue': '#00d4ff',
+                        'growth-green': '#00ff9d',
+                        'dark-bg': '#0a0a0f',
+                        'card-dark': '#121218',
+                        'border-dark': '#1e1e2e',
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark-bg text-white font-inter min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-bg/90 backdrop-blur-lg border-b border-border-dark">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="w-12 h-12 rounded-lg border-2 border-cyber-blue bg-black shadow-lg flex items-center justify-center">
+                        <div class="text-white text-2xl font-bold tracking-tighter">P</div>
+                    </div>
+                    <span class="text-xl font-bold">PMT Thị trường</span>
+                </div>
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="hover:text-cyber-blue transition">Trang chủ</a>
+                    <a href="#company" class="hover:text-cyber-blue transition">Công ty</a>
+                    <a href="team-vi.html" class="hover:text-cyber-blue transition">Đội ngũ</a>
+                    <a href="#products" class="hover:text-cyber-blue transition">Sản phẩm</a>
+                    <a href="#technology" class="hover:text-cyber-blue transition">Công nghệ</a>
+                    <a href="#contact" class="hover:text-cyber-blue transition">Liên hệ</a>
+                </div>
+                
+                <!-- Right-side Hamburger Menu for Mobile -->
+                <div class="md:hidden">
+                    <button id="mobileMenuButton" class="p-2 rounded-lg border border-border-dark hover:bg-card-dark transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Desktop Language Switcher & CTA -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <!-- Language Switcher -->
+                    <div class="relative" id="languageSwitcherContainer">
+                        <button id="languageSwitcherButton" class="flex items-center space-x-2 px-3 py-2 rounded-lg border border-cyber-blue bg-cyber-blue/10 hover:bg-cyber-blue/20 transition">
+                            <span class="font-bold">🌐 EN</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="languageMenu" class="absolute right-0 mt-2 w-40 bg-card-dark border border-border-dark rounded-lg shadow-lg opacity-0 invisible transition-all duration-200 z-50">
+                            <a href="index.html" class="block px-4 py-3 hover:bg-dark-bg transition border-b border-border-dark">
+                                <div class="font-bold">English</div>
+                                <div class="text-xs text-gray-400">Complete version</div>
+                            </a>
+                            <a href="index-vi-complete.html" class="block px-4 py-3 hover:bg-dark-bg transition border-b border-border-dark">
+                                <div class="font-bold">Tiếng Việt</div>
+                                <div class="text-xs text-gray-400">Phiên bản hoàn chỉnh</div>
+                            </a>
+                            <a href="index-zh-complete.html" class="block px-4 py-3 hover:bg-dark-bg transition">
+                                <div class="font-bold">中文</div>
+                                <div class="text-xs text-gray-400">翻译中</div>
+                            </a>
+                        </div>
+                    </div>
+                    <button class="bg-gradient-to-r from-cyber-blue to-growth-green text-dark-bg font-bold px-6 py-2 rounded-lg hover:opacity-90 transition">
+                        Khởi chạy Ứng dụng
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="fixed inset-0 bg-dark-bg/95 backdrop-blur-lg z-40 hidden">
+        <div class="flex flex-col h-full">
+            <div class="flex justify-end p-6">
+                <button id="closeMobileMenu" class="p-2 rounded-lg border border-border-dark hover:bg-card-dark transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="flex-1 flex flex-col items-center justify-center space-y-8 px-6">
+                <a href="#home" class="text-2xl font-bold hover:text-cyber-blue transition" onclick="closeMobileMenu()">Trang chủ</a>
+                <a href="#company" class="text-2xl font-bold hover:text-cyber-blue transition" onclick="closeMobileMenu()">Công ty</a>
+                <a href="team-vi.html" class="text-2xl font-bold hover:text-cyber-blue transition" onclick="closeMobileMenu()">Đội ngũ</a>
+                <a href="#products" class="text-2xl font-bold hover:text-cyber-blue transition" onclick="closeMobileMenu()">Sản phẩm</a>
+                <a href="#technology" class="text-2xl font-bold hover:text-cyber-blue transition" onclick="closeMobileMenu()">Công nghệ</a>
+                <a href="#contact" class="text-2xl font-bold hover:text-cyber-blue transition" onclick="closeMobileMenu()">Liên hệ</a>
+                
+                <!-- Mobile Language Switcher -->
+                <div class="mt-8 pt-8 border-t border-border-dark w-full max-w-xs">
+                    <div class="text-center mb-4 text-gray-400">Language / Ngôn ngữ / 语言</div>
+                    <div class="flex justify-center space-x-4">
+                        <a href="index.html" class="px-4 py-2 rounded-lg border border-border-dark hover:bg-card-dark transition" onclick="closeMobileMenu()">EN</a>
+                        <a href="index-vi-complete.html" class="px-4 py-2 rounded-lg border border-border-dark hover:bg-card-dark transition" onclick="closeMobileMenu()">VI</a>
+                        <a href="index-zh-complete.html" class="px-4 py-2 rounded-lg border border-border-dark hover:bg-card-dark transition" onclick="closeMobileMenu()">中文</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile CTA Button -->
+                <button class="mt-8 bg-gradient-to-r from-cyber-blue to-growth-green text-dark-bg font-bold px-8 py-3 rounded-lg text-lg hover:opacity-90 transition" onclick="closeMobileMenu()">
+                    Khởi chạy Ứng dụng
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-flex items-center space-x-2 bg-card-dark px-4 py-2 rounded-full mb-6">
+                        <div class="w-2 h-2 bg-growth-green rounded-full animate-pulse-slow"></div>
+                        <span class="text-sm">Giao dịch Thị trường Trực tiếp</span>
+                    </div>
+                    <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
+                        Giao dịch Tương lai.
+                        <span class="bg-gradient-to-r from-cyber-blue to-growth-green bg-clip-text text-transparent">
+                            Độ chính xác trong Mọi Dự đoán.
+                        </span>
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-8">
+                        PMT Thị trường transforms global uncertainty into actionable intelligence. 
+                        A next-generation prediction market platform where crowd-sourced forecasting meets institutional-grade trading.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-gradient-to-r from-cyber-blue to-growth-green text-dark-bg font-bold px-8 py-3 rounded-lg text-lg hover:opacity-90 transition">
+                            Bắt đầu Giao dịch
+                        </button>
+                        <button class="border border-border-dark text-white font-bold px-8 py-3 rounded-lg text-lg hover:bg-card-dark transition">
+                            Khám phá Thị trường
+                        </button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="bg-card-dark rounded-2xl p-6 border border-border-dark">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-xl font-bold">Bảng giá Thị trường Trực tiếp</h3>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-2 h-2 bg-growth-green rounded-full animate-pulse"></div>
+                                <span class="text-sm">Thời gian thực</span>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center p-4 bg-dark-bg rounded-lg">
+                                <div>
+                                    <div class="font-bold">Quyết định Lãi suất FED</div>
+                                    <div class="text-sm text-gray-400">Cuộc họp Tháng 3 2026</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-bold text-growth-green">72% Yes</div>
+                                    <div class="text-sm">0.72¢</div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center p-4 bg-dark-bg rounded-lg">
+                                <div>
+                                    <div class="font-bold">Thuế Carbon EU</div>
+                                    <div class="text-sm text-gray-400">Triển khai trước Q3 2026</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-bold text-cyber-blue">58% Yes</div>
+                                    <div class="text-sm">0.58¢</div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center p-4 bg-dark-bg rounded-lg">
+                                <div>
+                                    <div class="font-bold">Thành công IPO Công nghệ</div>
+                                    <div class="text-sm text-gray-400">Major AI Công ty 2026</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-bold text-growth-green">84% Yes</div>
+                                    <div class="text-sm">0.84¢</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -top-4 -right-4 w-24 h-24 bg-cyber-blue/10 rounded-full blur-xl"></div>
+                    <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-growth-green/10 rounded-full blur-xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cách thức Hoạt động -->
+    <section class="py-20 px-6 bg-card-dark">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Cách thức Hoạt động</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Ba bước đơn giản từ thông tin đến thực thi
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-dark-bg p-8 rounded-2xl border border-border-dark">
+                    <div class="w-14 h-14 bg-cyber-blue/20 rounded-xl flex items-center justify-center mb-6">
+                        <div class="w-8 h-8 bg-cyber-blue rounded-lg"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">1. Khám phá Thị trường</h3>
+                    <p class="text-gray-300">
+                        Duyệt qua hàng ngàn thị trường nhị phân và vô hướng trên các lĩnh vực chính trị, tài chính, công nghệ và sự kiện toàn cầu. Mỗi thị trường đại diện cho một kết quả cụ thể với giao dịch Có/Không.
+                    </p>
+                </div>
+                <div class="bg-dark-bg p-8 rounded-2xl border border-border-dark">
+                    <div class="w-14 h-14 bg-growth-green/20 rounded-xl flex items-center justify-center mb-6">
+                        <div class="w-8 h-8 bg-growth-green rounded-lg"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">2. Giao dịch Vị thế</h3>
+                    <p class="text-gray-300">
+                        Mua "Có" nếu bạn tin sự kiện sẽ xảy ra, "Không" nếu không. Giá cả phản ánh sự đồng thuận thị trường theo thời gian thực. Giao dịch với chỉ 1$ mỗi hợp đồng.
+                    </p>
+                </div>
+                <div class="bg-dark-bg p-8 rounded-2xl border border-border-dark">
+                    <div class="w-14 h-14 bg-cyber-blue/20 rounded-xl flex items-center justify-center mb-6">
+                        <div class="w-8 h-8 bg-cyber-blue rounded-lg"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">3. Thanh toán & Lợi nhuận</h3>
+                    <p class="text-gray-300">
+                        Khi sự kiện được giải quyết, hợp đồng thanh toán 1$ cho dự đoán đúng, 0$ cho sai. Giải quyết dựa trên oracle đảm bảo kết quả công bằng, minh bạch.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Công ty Profile -->
+    <section id="company" class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">Sự Khôn ngoan của Đám đông, Độ chính xác Tổ chức</h2>
+                    <p class="text-lg text-gray-300 mb-6">
+                        PMT Thị trường được thành lập dựa trên một tiền đề đơn giản: trí tuệ tập thể, khi được khai thác đúng cách, tạo ra dự báo chính xác hơn bất kỳ chuyên gia đơn lẻ nào.
+                    </p>
+                    <p class="text-lg text-gray-300 mb-8">
+                        We've built a platform that transforms global uncertainty into tradable insights, combining the wisdom of crowds with institutional-grade infrastructure. Our mission is to create the world's most transparent, accessible, and accurate prediction market ecosystem.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-card-dark p-6 rounded-xl border border-border-dark">
+                            <div class="text-3xl font-bold text-growth-green mb-2">99.9%</div>
+                            <div class="text-gray-300">Thời gian hoạt động Nền tảng</div>
+                        </div>
+                        <div class="bg-card-dark p-6 rounded-xl border border-border-dark">
+                            <div class="text-3xl font-bold text-cyber-blue mb-2">50K+</div>
+                            <div class="text-gray-300">Nhà giao dịch Hoạt động</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-card-dark rounded-2xl p-8 border border-border-dark">
+                    <h3 class="text-2xl font-bold mb-6">Triết lý của Chúng tôi</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-cyber-blue/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <div class="w-5 h-5 bg-cyber-blue rounded"></div>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-2">Transparency First</h4>
+                                <p class="text-gray-300">All market data, resolution criteria, and fee structures are publicly verifiable. No hidden mechanics.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-growth-green/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <div class="w-5 h-5 bg-growth-green rounded"></div>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-2">Regulatory Tuân thủ</h4>
+                                <p class="text-gray-300">Built within established financial frameworks with full KYC/AML procedures and regulatory oversight.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 bg-cyber-blue/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <div class="w-5 h-5 bg-cyber-blue rounded"></div>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-2">Global Accessibility</h4>
+                                <p class="text-gray-300">Available in 150+ countries with multi-currency support and localized market offerings.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sản phẩm & Services -->
+    <section id="products" class="py-20 px-6 bg-card-dark">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Sản phẩm & Services</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Giải pháp thị trường dự đoán toàn diện cho nhà giao dịch bán lẻ và tổ chức
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-dark-bg p-6 rounded-2xl border border-border-dark hover:border-cyber-blue transition group">
+                    <div class="w-12 h-12 bg-cyber-blue/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-cyber-blue/30 transition">
+                        <div class="w-6 h-6 bg-cyber-blue rounded-lg"></div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Tùy chọn Nhị phân</h3>
+                    <p class="text-gray-300 text-sm">
+                        Hợp đồng Có/Không trên các kết quả cụ thể. Giao dịch đơn giản, trực quan trên các sự kiện từ bầu cử đến báo cáo thu nhập.
+                    </p>
+                </div>
+                <div class="bg-dark-bg p-6 rounded-2xl border border-border-dark hover:border-growth-green transition group">
+                    <div class="w-12 h-12 bg-growth-green/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-growth-green/30 transition">
+                        <div class="w-6 h-6 bg-growth-green rounded-lg"></div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Vĩ mô & Địa chính trị</h3>
+                    <p class="text-gray-300 text-sm">
+                        Thị trường về các chỉ số kinh tế, quyết định chính sách, quan hệ quốc tế và sự kiện rủi ro toàn cầu.
+                    </p>
+                </div>
+                <div class="bg-dark-bg p-6 rounded-2xl border border-border-dark hover:border-cyber-blue transition group">
+                    <div class="w-12 h-12 bg-cyber-blue/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-cyber-blue/30 transition">
+                        <div class="w-6 h-6 bg-cyber-blue rounded-lg"></div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Công cụ Tổ chức</h3>
+                    <p class="text-gray-300 text-sm">
+                        Bảng điều khiển dự báo tùy chỉnh, truy cập API, giải pháp white-label (nhãn trắng) và nguồn cấp dữ liệu doanh nghiệp.
+                    </p>
+                </div>
+                <div class="bg-dark-bg p-6 rounded-2xl border border-border-dark hover:border-growth-green transition group">
+                    <div class="w-12 h-12 bg-growth-green/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-growth-green/30 transition">
+                        <div class="w-6 h-6 bg-growth-green rounded-lg"></div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Giải pháp API</h3>
+                    <p class="text-gray-300 text-sm">
+                        Dữ liệu thị trường thời gian thực, tự động hóa giao dịch và công cụ tích hợp cho nhà phát triển và công ty định lượng.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Công nghệ & Bảo mật -->
+    <section id="technology" class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Công nghệ & Bảo mật</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Cơ sở hạ tầng cấp doanh nghiệp với bảo mật cấp quân đội
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-card-dark p-8 rounded-2xl border border-border-dark">
+                    <div class="text-5xl font-bold text-growth-green mb-4">＜2ms</div>
+                    <h3 class="text-2xl font-bold mb-4">Động cơ Khớp lệnh</h3>
+                    <p class="text-gray-300">
+                        Động cơ khớp lệnh độc quyền xử lý hàng triệu giao dịch mỗi giây với độ trễ dưới 2ms. Được xây dựng cho môi trường giao dịch tần suất cao.
+                    </p>
+                </div>
+                <div class="                <div class="bg-card-dark p-8 rounded-2xl border border-border-dark">
+                    <div class="text-5xl font-bold text-cyber-blue mb-4">AES-256</div>
+                    <h3 class="text-2xl font-bold mb-4">Bảo mật Cấp Ngân hàng</h3>
+                    <p class="text-gray-300">
+                        Mã hóa end-to-end, ví đa chữ ký và lưu trữ lạnh cho 98% tài sản. Kiểm toán bảo mật bên thứ ba thường xuyên và chương trình tiền thưởng lỗi.
+                    </p>
+                </div>
+                <div class="bg-card-dark p-8 rounded-2xl border border-border-dark">
+                    <div class="text-5xl font-bold text-growth-green mb-4">99.99%</div>
+                    <h3 class="text-2xl font-bold mb-4">Thời gian hoạt động Hệ thống</h3>
+                    <p class="text-gray-300">
+                        Phân phối trên 12 khu vực toàn cầu với chuyển đổi dự phòng tự động. Triển khai không thời gian chết và giám sát thời gian thực với đội ngũ SRE 24/7.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Liên hệ Section -->
+    <section id="contact" class="py-20 px-6 bg-card-dark">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Bắt đầu Ngay hôm nay</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Tham gia hàng ngàn nhà giao dịch và tổ chức đã dự đoán tương lai
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-dark-bg p-8 rounded-2xl border border-border-dark">
+                    <h3 class="text-2xl font-bold mb-6">Sẵn sàng Giao dịch?</h3>
+                    <p class="text-gray-300 mb-6">
+                        Tạo tài khoản của bạn trong vài phút. Không yêu cầu tiền gửi tối thiểu. Bắt đầu với chỉ 10$.
+                    </p>
+                    <button class="w-full bg-gradient-to-r from-cyber-blue to-growth-green text-dark-bg font-bold px-6 py-3 rounded-lg hover:opacity-90 transition">
+                        Tạo Tài khoản Miễn phí
+                    </button>
+                </div>
+                <div class="bg-dark-bg p-8 rounded-2xl border border-border-dark">
+                    <h3 class="text-2xl font-bold mb-6">Giải pháp Doanh nghiệp</h3>
+                    <p class="text-gray-300 mb-6">
+                        Cần công cụ dự báo tùy chỉnh, truy cập API hoặc giải pháp white-label (nhãn trắng)? Đội ngũ doanh nghiệp của chúng tôi sẵn sàng hỗ trợ.
+                    </p>
+                    <button class="w-full border border-border-dark text-white font-bold px-6 py-3 rounded-lg hover:bg-card-dark transition">
+                        Liên hệ Bán hàng
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-border-dark">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 rounded-lg border border-cyber-blue bg-black shadow-sm flex items-center justify-center">
+                        <div class="text-white text-sm font-bold">P</div>
+                    </div>
+                        <span class="text-lg font-bold">PMT Thị trường</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Thị trường dự đoán thế hệ mới. Giao dịch tương lai với độ chính xác.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Nền tảng</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-cyber-blue transition text-sm">Thị trường</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyber-blue transition text-sm">Giao dịch</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyber-blue transition text-sm">API</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyber-blue transition text-sm">Tài liệu</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Công ty</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#company" class="text-gray-400 hover:text-cyber-blue transition text-sm">Về chúng tôi</a></li>
+                        <li><a href="team-vi.html" class="text-gray-400 hover:text-cyber-blue transition text-sm">Đội ngũ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyber-blue transition text-sm">Nghề nghiệp</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyber-blue transition text-sm">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Pháp lý</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-cyber-blue transition text-sm">Điều khoản</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyber-blue transition text-sm">Riêng tư</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyber-blue transition text-sm">Tuân thủ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-cyber-blue transition text-sm">Bảo mật</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-border-dark text-center text-gray-400 text-sm">
+                <p>© 2026 PMT Thị trường. Mọi quyền được bảo lưu. Thị trường dự đoán có rủi ro và có thể không phù hợp với tất cả nhà đầu tư.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Live market ticker animation
+        // Live market ticker animation - FIXED VERSION
+        function updateMarketTicker() {
+            // Select only market items in the ticker section
+            const markets = document.querySelectorAll('.bg-dark-bg.rounded-lg');
+            markets.forEach(market => {
+                // Find the price element (last .text-sm in the right column)
+                const rightColumn = market.querySelector('.text-right');
+                if (!rightColumn) return;
+                
+                const priceElement = rightColumn.querySelector('.text-sm:last-child');
+                if (!priceElement) return;
+                
+                // Get current price safely
+                let priceText = priceElement.textContent.trim();
+                let currentPrice = parseFloat(priceText.replace('¢', '').replace('$', ''));
+                
+                // If NaN, set a default
+                if (isNaN(currentPrice)) {
+                    currentPrice = 0.50; // Default 50%
+                }
+                
+                // Generate small random change
+                const change = (Math.random() - 0.5) * 0.02;
+                const newPrice = Math.max(0.01, Math.min(0.99, currentPrice + change));
+                
+                // Update price display
+                priceElement.textContent = newPrice.toFixed(2) + '¢';
+                
+                // Update percentage display
+                const percentElement = rightColumn.querySelector('.font-bold');
+                if (percentElement) {
+                    const newPercent = Math.round(newPrice * 100);
+                    percentElement.textContent = newPercent + '% Yes';
+                    // Set color based on direction
+                    percentElement.className = 'font-bold ' + (newPrice > currentPrice ? 'text-growth-green' : 'text-cyber-blue');
+                }
+            });
+        }
+
+        // Update ticker every 5 seconds
+        setInterval(updateMarketTicker, 5000);
+        // Initial update after page loads
+        setTimeout(updateMarketTicker, 1000);
+        
+        // Mobile Menu JavaScript - Fixed version
+        console.log('Mobile menu script loading (fixed)...');
+        
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, setting up mobile menu...');
+            
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuButton = document.getElementById('mobileMenuButton');
+            const closeMobileMenuButton = document.getElementById('closeMobileMenu');
+            
+            console.log('Mobile menu elements found:', {
+                mobileMenu: !!mobileMenu,
+                mobileMenuButton: !!mobileMenuButton,
+                closeMobileMenuButton: !!closeMobileMenuButton
+            });
+            
+            function openMobileMenu() {
+                console.log('Opening mobile menu');
+                if (mobileMenu) {
+                    mobileMenu.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+            
+            function closeMobileMenu() {
+                console.log('Closing mobile menu');
+                if (mobileMenu) {
+                    mobileMenu.classList.add('hidden');
+                    document.body.style.overflow = '';
+                }
+            }
+            
+            // Make functions globally accessible for onclick handlers
+            window.openMobileMenu = openMobileMenu;
+            window.closeMobileMenu = closeMobileMenu;
+            
+            // Add click event to hamburger menu button
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', openMobileMenu);
+                console.log('✓ Added click listener to hamburger button');
+            } else {
+                console.error('✗ Hamburger button not found!');
+            }
+            
+            // Add click event to close button
+            if (closeMobileMenuButton) {
+                closeMobileMenuButton.addEventListener('click', closeMobileMenu);
+                console.log('✓ Added click listener to close button');
+            } else {
+                console.error('✗ Close button not found!');
+            }
+            
+            // Close menu when clicking outside
+            if (mobileMenu) {
+                mobileMenu.addEventListener('click', function(e) {
+                    if (e.target === mobileMenu) {
+                        closeMobileMenu();
+                    }
+                });
+            }
+            
+            // Close menu on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    closeMobileMenu();
+                }
+            });
+            
+            console.log('Mobile menu setup complete!');
+        });
+        
+        // Language Switcher JavaScript
+        const languageSwitcherButton = document.getElementById('languageSwitcherButton');
+        const languageMenu = document.getElementById('languageMenu');
+        
+        if (languageSwitcherButton && languageMenu) {
+            languageSwitcherButton.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const isVisible = languageMenu.classList.contains('opacity-0');
+                if (isVisible) {
+                    languageMenu.classList.remove('opacity-0', 'invisible');
+                    languageMenu.classList.add('opacity-100', 'visible');
+                } else {
+                    languageMenu.classList.add('opacity-0', 'invisible');
+                    languageMenu.classList.remove('opacity-100', 'visible');
+                }
+            });
+            
+            // Close language menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!languageSwitcherButton.contains(e.target) && !languageMenu.contains(e.target)) {
+                    languageMenu.classList.add('opacity-0', 'invisible');
+                    languageMenu.classList.remove('opacity-100', 'visible');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
